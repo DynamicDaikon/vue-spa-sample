@@ -1,11 +1,21 @@
-<script setup>
-import { ref } from 'vue';
-import GreetingMessage from '@/components/GreetingMessage.vue';
-const greet = ref('Hello');
-</script>
 <template>
-  <GreetingMessage>{{ greet }}</GreetingMessage>
-  <input v-model="greet" />
+  <h1 :class="titleClass">Make me dynamic</h1>
+  <div>{{ message.split(' ').reverse().join(' ') }}</div>
 </template>
 
-<style></style>
+<script>
+export default {
+  data() {
+    return {
+      message: 'Hello world',
+      titleClass: 'title',
+    };
+  },
+};
+</script>
+
+<style>
+.title {
+  color: red;
+}
+</style>
